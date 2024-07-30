@@ -18,7 +18,7 @@ int secondsmall(int arr[],int n){
 
     return secondsmallest;
 }
-int secondlarge(int arr[],int n){{
+int secondlarge(int arr[],int n){
     int largest=INT_MIN;
     int secondlargest=INT_MIN;
 
@@ -35,8 +35,6 @@ int secondlarge(int arr[],int n){{
 
     return secondlargest;
 
-
-}
 
 }
 
