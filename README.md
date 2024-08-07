@@ -205,3 +205,4 @@ MAIN MENU (QUICK SORT)
 - Ensure that each input file contains between 300 to 500 entries.
 - For the Quick Sort, partitioning scenarios must be carefully evaluated to determine the nature of the input data's impact on the sorting process.
 
+# Task 3: Find MIN_MAX Using Divide & Conquer Rule 
