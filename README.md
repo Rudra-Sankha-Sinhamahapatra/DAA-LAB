@@ -117,3 +117,91 @@ $ ./lab2q2 inGcd.dat outGcd.dat
 
 ### Expected Output
 Display the GCD stored in the output file `outGcd.dat`.
+
+
+---
+
+# Divide and Conquer Method - Lab Day 3
+
+## Overview
+
+This lab exercise consists of two primary tasks that demonstrate sorting techniques using the Divide and Conquer method. The tasks involve implementing Merge Sort and Quick Sort algorithms, reading input data from files, and evaluating the performance of these algorithms based on execution time and the number of comparisons made during the sorting process.
+
+---
+
+## Task 1: Merge Sort Implementation
+
+### Objective:
+- Write a menu-driven program to sort a list of array elements using the Merge Sort technique.
+- Calculate and display the execution time required to sort the elements.
+- Count and display the number of comparisons made during sorting.
+
+### Input Files:
+- **inAsce.dat**: Contains data in ascending order (e.g., `10 20 30 40 ...`).
+- **inDesc.dat**: Contains data in descending order (e.g., `90 80 70 60 ...`).
+- **inRand.dat**: Contains random data (e.g., `55 66 33 11 44 ...`).
+
+### Output Files:
+- **outMergeAsce.dat**: Stores sorted output for ascending data.
+- **outMergeDesc.dat**: Stores sorted output for descending data.
+- **outMergeRand.dat**: Stores sorted output for random data.
+
+### Main Menu:
+```
+MAIN MENU (MERGE SORT)
+1. Ascending Data
+2. Descending Data
+3. Random Data
+4. ERROR (EXIT)
+```
+
+### Expected Output:
+- Display the content of the input file before sorting.
+- Display the content of the output file after sorting.
+- Display the number of comparisons made during sorting.
+- Display the execution time in nanoseconds.
+
+---
+
+## Task 2: Quick Sort Implementation
+
+### Objective:
+- Write a menu-driven program to sort a list of array elements in ascending order using the Quick Sort technique.
+- Calculate and display the number of comparisons made during sorting.
+- Determine and display whether the partitioning scenario is the best-case or worst-case scenario.
+
+### Input Files:
+- **inAsce.dat**: Contains data in ascending order (e.g., `10 20 30 40 ...`).
+- **inDesc.dat**: Contains data in descending order (e.g., `90 80 70 60 ...`).
+- **inRand.dat**: Contains random data (e.g., `55 66 33 11 44 ...`).
+
+### Output Files:
+- **outQuickAsce.dat**: Stores sorted output for ascending data.
+- **outQuickDesc.dat**: Stores sorted output for descending data.
+- **outQuickRand.dat**: Stores sorted output for random data.
+
+### Main Menu:
+```
+MAIN MENU (QUICK SORT)
+1. Ascending Data
+2. Descending Data
+3. Random Data
+4. ERROR (EXIT)
+```
+
+### Expected Output:
+- Display the content of the input file before sorting.
+- Display the content of the output file after sorting.
+- Display the number of comparisons made during sorting.
+- Display whether the partitioning scenario is best-case or worst-case based on the partitioning behavior.
+
+### Partitioning Scenarios:
+- **Best-case**: The partitioning routine produces two subproblems, each of size no more than n/2.
+- **Worst-case**: The partitioning routine produces one subproblem with n-1 elements and one with 0 elements.
+
+---
+
+## Notes:
+- Ensure that each input file contains between 300 to 500 entries.
+- For the Quick Sort, partitioning scenarios must be carefully evaluated to determine the nature of the input data's impact on the sorting process.
+
