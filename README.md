@@ -206,3 +206,63 @@ MAIN MENU (QUICK SORT)
 - For the Quick Sort, partitioning scenarios must be carefully evaluated to determine the nature of the input data's impact on the sorting process.
 
 # Task 3: Find MIN_MAX Using Divide & Conquer Rule 
+
+
+# Lab Day 4: Heap
+
+## 4.1 Aim of the Program
+
+The aim of this program is to define a `struct person` and implement a menu-driven program that reads the data of `n` students from a file, stores them in a dynamically allocated array of struct `person`, and implements heap operations.
+
+### Definition of `struct person`:
+
+```c
+struct person {
+    int id;
+    char *name;
+    int age;
+    int height;
+    int weight;
+};
+```
+
+### Menu-Driven Program:
+
+The program allows the user to perform various operations on the heap:
+
+- **Option 1:** Read Data from a file and store it in a dynamically allocated array of struct `person`.
+- **Option 2:** Create a Min-heap based on the `age` of the person.
+- **Option 3:** Create a Max-heap based on the `weight` of the person.
+- **Option 4:** Display the `weight` of the youngest person in the heap.
+- **Option 5:** Insert a new person into the Min-heap.
+- **Option 6:** Delete the oldest person from the heap.
+- **Option 7:** Exit the program.
+
+### Sample Input/Output:
+
+```
+MAIN MENU (HEAP)
+1. Read Data
+2. Create a Min-heap based on the age
+3. Create a Max-heap based on the weight
+4. Display weight of the youngest person
+5. Insert a new person into the Min-heap
+6. Delete the oldest person
+7. Exit
+
+Enter option: 1 
+
+Id    Name                Age  Height  Weight (pound)
+0     Adarsh Hota         39   77      231
+1     Levi Maier          56   77      129
+2     Priya Kumari        63   78      240
+3     Dorothy Helton      47   72      229
+4     Florence Smith      24   75      171
+5     Erica Anyan         38   73      102
+6     Norma Webster       23   75      145
+
+Enter option: 4
+Weight of the youngest person: 65.77 kg
+```
+
+**Note**: Other menu choices are similarly verified based on the user's input and the heap operations.
