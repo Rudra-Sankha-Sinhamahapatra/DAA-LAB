@@ -1,94 +1,109 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-typedef struct {
-    int item_id;
-    float item_profit;
-    float item_weight;
-    float profit_weight_ratio;
-} ITEM;
+int w;
 
-void swap(ITEM *a, ITEM *b) {
-    ITEM temp = *a;
+struct item{
+    int ino;
+    float profit;
+    float weight;
+    float pw;
+    float amount;
+};
+
+void swap(struct item *a, struct item *b){
+    struct item temp = *a;
     *a = *b;
     *b = temp;
 }
 
-void heapify(ITEM arr[], int n, int i) {
-    int largest = i;  
-    int left = 2 * i + 1; 
-    int right = 2 * i + 2; 
+void max_heapify_pw(struct item arr[], int n, int node)
+{
+    int largest = node;
+    int left = 2 * node + 1;
+    int right = 2 * node + 2;
 
-
-    if (left < n && arr[left].profit_weight_ratio > arr[largest].profit_weight_ratio)
+    if (left < n && arr[left].pw > arr[largest].pw)
         largest = left;
 
-    if (right < n && arr[right].profit_weight_ratio > arr[largest].profit_weight_ratio)
+    if (right < n && arr[right].pw > arr[largest].pw)
         largest = right;
 
-    if (largest != i) {
-        swap(&arr[i], &arr[largest]);
-
-      
-        heapify(arr, n, largest);
+    if (largest != node) {
+        swap(&arr[node], &arr[largest]);
+        max_heapify_pw(arr, n, largest);
     }
 }
 
-void heapSort(ITEM arr[], int n) {
-    for (int i = n / 2 - 1; i >= 0; i--)
-        heapify(arr, n, i);
+void max_heapSort_pw(struct item arr[], int n){
+    int i;
+    for (i = (n/2) - 1; i >= 0; i--)
+        max_heapify_pw(arr, n, i);
 
-    for (int i = n - 1; i >= 0; i--) {
+    for (i = n - 1; i > 0; i--) {
         swap(&arr[0], &arr[i]);
+        max_heapify_pw(arr, i, 0);
+    }
 
-        heapify(arr, i, 0);
+    for (i = 0; i < n / 2; i++)
+        swap(&arr[i], &arr[n - i - 1]);
+
+}
+
+void display(struct item arr[], int n){
+    printf("\nINO\tPROFIT\t\tWEIGHT\t\tAMOUNT\t\tPW Ratio");
+    for (int i = 0; i < n; i++){
+        printf("\n%d\t%f\t%f\t%f\t%f", arr[i].ino, arr[i].profit, arr[i].weight, arr[i].amount, arr[i].pw);
     }
 }
 
-
-void fractionalKnapsack(ITEM items[], int n, float capacity) {
-    float totalProfit = 0.0;
-    printf("Item No\t\tprofit\t\tWeight\t\tAmount to be taken\n");
-
-    for (int i = 0; i < n; i++) {
-        if (capacity == 0)
+float calculate_profit(struct item arr[], int n){
+    for (int i = 0; i < n; i++){
+        if(w<=0)
             break;
-
-        if (items[i].item_weight <= capacity) {
-            printf("%d\t\t%.6f\t%.6f\t1.000000\n", items[i].item_id, items[i].item_profit, items[i].item_weight);
-            totalProfit += items[i].item_profit;
-            capacity -= items[i].item_weight;
-        } else {
-            float fraction = capacity / items[i].item_weight;
-            printf("%d\t\t%.6f\t%.6f\t%.6f\n", items[i].item_id, items[i].item_profit, items[i].item_weight, fraction);
-            totalProfit += items[i].item_profit * fraction;
-            capacity = 0;
+        else{
+            if(arr[i].weight <= w){
+                w = w - arr[i].weight;
+                arr[i].amount = 1;
+            }
+            else{
+                arr[i].amount = w / arr[i].weight;
+                w = 0;
+            }
         }
     }
-    printf("Maximum profit: %.6f\n", totalProfit);
+    float profit = 0;
+    for (int i = 0; i < n; i++){
+        profit += (arr[i].profit * arr[i].amount);
+    }
+    return profit;
 }
 
-int main() {
+int main(){
     int n;
-    printf("Enter the number of items: ");
+    printf("\nEnter capacity of the knapsack: ");
+    scanf("%d", &w);
+    printf("\nEnter n: ");
     scanf("%d", &n);
 
-    ITEM items[n];
-    for (int i = 0; i < n; i++) {
-        printf("Enter the profit and weight of item no %d: ", i + 1);
-        items[i].item_id = i + 1;
-        scanf("%f %f", &items[i].item_profit, &items[i].item_weight);
-        items[i].profit_weight_ratio = items[i].item_profit / items[i].item_weight;
+    struct item a[n];
+
+    for (int i = 0; i < n; i++ ){
+        a[i].ino = i + 1;
+        printf("\nEnter the profit and weight of item no %d: ", a[i].ino);
+        scanf("%f %f", &a[i].profit, &a[i].weight);
+        a[i].pw = a[i].profit/a[i].weight;
+        a[i].amount = 0;
     }
 
-    float capacity;
-    printf("Enter the capacity of knapsack: ");
-    scanf("%f", &capacity);
+    max_heapSort_pw(a, n);
+    // display(a, n);
 
+    calculate_profit(a, n);
 
-    heapSort(items, n);
-
-
-    fractionalKnapsack(items, n, capacity);
+    float max_profit = calculate_profit(a, n);
+    display(a, n);
+    printf("\nMax. profit = %f", max_profit);
 
     return 0;
 }
