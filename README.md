@@ -199,14 +199,16 @@ MAIN MENU (QUICK SORT)
 - **Best-case**: The partitioning routine produces two subproblems, each of size no more than n/2.
 - **Worst-case**: The partitioning routine produces one subproblem with n-1 elements and one with 0 elements.
 
----
 
 ## Notes:
 - Ensure that each input file contains between 300 to 500 entries.
 - For the Quick Sort, partitioning scenarios must be carefully evaluated to determine the nature of the input data's impact on the sorting process.
 
+---
+
 # Task 3: Find MIN_MAX Using Divide & Conquer Rule 
 
+---
 
 # Lab Day 4: Heap
 
@@ -266,3 +268,62 @@ Weight of the youngest person: 65.77 kg
 ```
 
 **Note**: Other menu choices are similarly verified based on the user's input and the heap operations.
+
+
+---
+
+## Lab Day 5: Greedy Techniques
+
+### 5.1 Aim of the Program: Fractional Knapsack Algorithm
+
+**Objective**:  
+Write a program to find the maximum profit nearest to but not exceeding the given knapsack capacity using the Fractional Knapsack algorithm.
+
+**Notes**:  
+- Declare a structure `ITEM` having the following data members:
+  - `item_id`
+  - `item_profit`
+  - `item_weight`
+  - `profit_weight_ratio`
+- Apply the heap sort technique to sort the items in non-increasing order according to their profit/weight ratio.
+
+**Input**:
+- Number of items: `3`
+- Profit and weight of each item:
+  - Item 1: Profit = `27`, Weight = `16`
+  - Item 2: Profit = `14`, Weight = `12`
+  - Item 3: Profit = `26`, Weight = `13`
+- Capacity of the knapsack: `18`
+
+**Output**:
+```plaintext
+Item No      Profit       Weight       Amount to be taken
+3            26.000000    13.000000    1.000000
+1            27.000000    16.000000    0.312500
+2            14.000000    12.000000    0.000000
+Maximum profit: 34.437500
+```
+
+---
+
+### 5.2 Aim of the Program: Huffman Coding
+
+**Objective**:  
+Huffman coding assigns variable length code words to fixed length input characters based on their frequencies or probabilities of occurrence. Given a set of characters along with their frequency of occurrences, write a C program to construct a Huffman tree.
+
+**Notes**:  
+- Declare a structure `SYMBOL` having the following members:
+  - `alphabet`
+  - `frequency`
+- Create a Min-Priority Queue, keyed on frequency attributes.
+- Create an array of structures where `size = number of alphabets`.
+
+**Input**:
+- Number of distinct alphabets: `6`
+- Alphabets: `a, b, c, d, e, f`
+- Frequencies: `45, 13, 12, 16, 9, 5`
+
+**Output**:
+In-order traversal of the tree (Huffman): a  c  b  f  e  d
+
+---
