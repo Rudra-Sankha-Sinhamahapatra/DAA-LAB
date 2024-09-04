@@ -327,3 +327,61 @@ Huffman coding assigns variable length code words to fixed length input characte
 In-order traversal of the tree (Huffman): a  c  b  f  e  d
 
 ---
+
+Here is the README file content based on the images you provided:
+
+---
+
+# Lab Day 6: Greedy Techniques (Cont...) - Minimum Cost Spanning Tree (Kruskal’s Algorithm, Prim’s Algorithm)
+
+## 6.1 Aim of the Program
+Given an undirected weighted connected graph G(V, E) and starting vertex ‘s’. Maintain a Min-Priority Queue ‘Q’ from the vertex set V and apply Prim’s algorithm to:
+
+- Find the minimum spanning tree T(V, E’). Display the cost adjacency matrix of ‘T’.
+- Display the total cost of the minimum spanning tree T.
+
+### Note
+- Nodes will be numbered consecutively from 1 to n (user input), and edges will have varying weight.
+- The graph G can be read from an input file “inUnAdjMat.dat” that contains a cost adjacency matrix.
+- The expected output could be displayed as the cost adjacency matrix of the minimum spanning tree and total cost of the tree.
+
+## Example
+
+### Content of the input file “inUnAdjMat.dat” could be:
+
+```
+0   4   0   0   0   0   0   8   0
+4   0   8   0   0   0   0   11  0
+0   8   0   7   0   4   0   0   2
+0   0   7   0   9   14  0   0   0
+0   0   0   9   0   10  0   0   0
+0   0   4   14  10  0   2   0   0
+0   0   0   0   0   2   0   1   6
+8   11  0   0   0   0   1   0   7
+0   0   2   0   0   0   6   7   0
+```
+
+### Input:
+
+```
+Enter the Number of Vertices: 9
+Enter the Starting Vertex: 1
+```
+
+### Expected Output:
+
+```
+0   4   0   0   0   0   0   8   0
+4   0   0   0   0   0   0   0   0
+0   0   0   7   0   4   0   0   2
+0   0   7   0   9   0   0   0   0
+0   0   0   9   0   0   0   0   0
+0   0   4   0   0   0   2   0   0
+0   0   0   0   0   2   0   1   0
+8   0   0   0   0   0   1   0   0
+0   0   2   0   0   0   0   0   0
+```
+
+**Total Weight of the Spanning Tree:** 37
+
+---
