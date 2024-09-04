@@ -2,7 +2,7 @@
 
 # Lab Day 1: Revision of Data Structures
 
-This repository contains four programs focused on data structures. Each program performs different operations on arrays and demonstrates fundamental concepts in programming.
+This Lab contains four programs focused on data structures. Each program performs different operations on arrays and demonstrates fundamental concepts in programming.
 
 ## Programs
 
@@ -325,10 +325,6 @@ Huffman coding assigns variable length code words to fixed length input characte
 
 **Output**:
 In-order traversal of the tree (Huffman): a  c  b  f  e  d
-
----
-
-Here is the README file content based on the images you provided:
 
 ---
 
