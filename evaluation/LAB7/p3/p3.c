@@ -1,20 +1,37 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int compare(const void* a, const void* b) {
-    return (*(int*)a - *(int*)b);
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
 }
 
 void findKthSmallestAndLargest(int arr[], int n, int k) {
-    qsort(arr, n, sizeof(int), compare);
+
+    bubbleSort(arr, n);
 
     printf("The %dth smallest element is: %d\n", k, arr[k - 1]);
     printf("The %dth largest element is: %d\n", k, arr[n - k]);
 }
 
 int main() {
-    int arr[] = {12, 3, 5, 7, 19, 1, 2, 9};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n;
+    printf("Enter the array size\n");
+    scanf("%d",&n);
+
+     int arr [n];
+     
+    printf("Enter array elements\n");
+    for(int i = 0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+
     int k;
 
     printf("Enter the value of K: ");
